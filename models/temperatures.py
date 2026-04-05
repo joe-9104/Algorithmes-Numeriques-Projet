@@ -1,0 +1,1 @@
+# Refroidissement de température : CoolingProblem class

@@ -1,0 +1,1 @@
+# NewtonCotes, AdaptiveIntegration and GaussQuadrature classes should be implemented here.
