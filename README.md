@@ -67,11 +67,11 @@ python main.py --no-show
 
 Les sorties sont sauvegardees dans le dossier `results/` (cree automatiquement):
 
-- runge_phenomenon.png
-- cooling_interpolation_comparison.png
-- cooling_analysis.png
-- flow_analysis.png
-- integration_convergence.png
+- phenomene_runge.png
+- comparaison_interpolations_refroidissement.png
+- analyse_refroidissement.png
+- analyse_ecoulement.png
+- convergence_integration.png
 - summary.json
 
 ## Lancer les tests

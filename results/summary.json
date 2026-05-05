@@ -1,6 +1,6 @@
 {
   "runge": {
-    "figure": "results\\runge_phenomenon.png",
+    "figure": "results\\phenomene_runge.png",
     "max_errors": {
       "eq_n_5": 0.8307353964943279,
       "ch_n_5": 0.8478718208456764,
@@ -27,8 +27,8 @@
     },
     "k_opt": 0.14403062931351884,
     "figures": [
-      "results\\cooling_interpolation_comparison.png",
-      "results\\cooling_analysis.png"
+      "results\\comparaison_interpolations_refroidissement.png",
+      "results\\analyse_refroidissement.png"
     ]
   },
   "flow": {
@@ -42,7 +42,7 @@
     },
     "acceleration_at_3.0": 5.952853938801684,
     "work_mass_2.0": 20.25000068835449,
-    "figure": "results\\flow_analysis.png"
+    "figure": "results\\analyse_ecoulement.png"
   },
   "convergence": {
     "exact_integral": 1.718281828459045,
@@ -88,6 +88,6 @@
         2.2226664952995634e-12
       ]
     },
-    "figure": "results\\integration_convergence.png"
+    "figure": "results\\convergence_integration.png"
   }
 }

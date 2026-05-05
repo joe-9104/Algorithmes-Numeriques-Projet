@@ -77,13 +77,13 @@ def run_runge_study(viz, output_dir):
 		y_eq_fine = np.asarray(interp_eq.evaluate(x_fine, method="newton"), dtype=float)
 		y_ch_fine = np.asarray(interp_ch.evaluate(x_fine, method="newton"), dtype=float)
 
-		interpolation_curves[f"Equidistant n={n}"] = y_eq_fine
-		interpolation_curves[f"Chebyshev n={n}"] = y_ch_fine
+		interpolation_curves[f"Points équidistants n={n}"] = y_eq_fine
+		interpolation_curves[f"Points de Tchebychev n={n}"] = y_ch_fine
 		max_errors[f"eq_n_{n}"] = float(np.max(np.abs(y_eq_fine - y_true)))
 		max_errors[f"ch_n_{n}"] = float(np.max(np.abs(y_ch_fine - y_true)))
 
 	fig, _ = viz.plot_runge_phenomenon(x_fine, y_true, interpolation_curves)
-	saved = save_figure(fig, output_dir, "runge_phenomenon.png")
+	saved = save_figure(fig, output_dir, "phenomene_runge.png")
 
 	return {
 		"figure": str(saved),
@@ -119,16 +119,16 @@ def run_cooling_analysis(viz, output_dir):
 		t_data,
 		T_data,
 		{
-			"Newton": lambda x: poly.evaluate(x, method="newton"),
-			"Lagrange": lambda x: poly.evaluate(x, method="lagrange"),
+			"Interpolation de Newton": lambda x: poly.evaluate(x, method="newton"),
+			"Interpolation de Lagrange": lambda x: poly.evaluate(x, method="lagrange"),
 		},
 		t_fine,
-		"Cooling Interpolation Comparison",
+		"Comparaison des interpolations pour le refroidissement",
 	)
 	fig_analysis, _ = viz.plot_cooling_analysis(t_data, T_data, t_fine, T_interp, k_opt, T_model)
 
-	saved_cmp = save_figure(fig_cmp, output_dir, "cooling_interpolation_comparison.png")
-	saved_analysis = save_figure(fig_analysis, output_dir, "cooling_analysis.png")
+	saved_cmp = save_figure(fig_cmp, output_dir, "comparaison_interpolations_refroidissement.png")
+	saved_analysis = save_figure(fig_analysis, output_dir, "analyse_refroidissement.png")
 
 	return {
 		"temperature_at_targets": {
@@ -158,7 +158,7 @@ def run_flow_analysis(viz, output_dir):
 	}
 
 	fig, _ = viz.plot_flow_analysis(x_data, v_data, x_fine, v_interp, width_func)
-	saved = save_figure(fig, output_dir, "flow_analysis.png")
+	saved = save_figure(fig, output_dir, "analyse_ecoulement.png")
 
 	return {
 		"total_flow_rate": total_flow,
@@ -190,9 +190,9 @@ def run_convergence_study(viz, output_dir):
 		n_values,
 		errors,
 		methods=["rectangle", "trapezoidal", "simpson"],
-		title="Integration Convergence on exp(x)",
+		title="Convergence des méthodes d'intégration sur exp(x)",
 	)
-	saved = save_figure(fig, output_dir, "integration_convergence.png")
+	saved = save_figure(fig, output_dir, "convergence_integration.png")
 
 	return {
 		"exact_integral": exact,
